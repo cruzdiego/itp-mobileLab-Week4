@@ -138,7 +138,7 @@ class ExpandableMenuView: UIView {
         //***********************
         
         //
-        UIView.animate(withDuration: 0.3, delay: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseOut, animations: {
             self.backgroundColor = stateBackgroundColor()
         }, completion: nil)
     }
@@ -185,9 +185,30 @@ class ExpandableMenuView: UIView {
         }
         //****************************
         
+        //*** Damping ***
+        func damping() -> CGFloat {
+            switch currentState {
+            case .collapsed:
+                return 0.85
+            case .expanded:
+                return 0.77
+            }
+        }
+        //***************
+        
+        //*** Duration ***
+        func duration() -> TimeInterval {
+            switch currentState {
+            case .collapsed:
+                return 0.6
+            case .expanded:
+                return 0.65
+            }
+        }
+        //****************
+        
         //
-        let damping:CGFloat = currentState == .collapsed ? 0.85 : 0.7
-        UIView.animate(withDuration: 0.6, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
+        UIView.animate(withDuration: duration(), delay: 0, usingSpringWithDamping: damping(), initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
             self.topLineView?.transform = topLineTransform()
             self.centerLineView?.transform = centerLineTransform()
             self.bottomLineView?.transform = bottomLineTransform()
