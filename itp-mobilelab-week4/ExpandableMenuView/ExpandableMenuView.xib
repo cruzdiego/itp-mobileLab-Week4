@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExpandableMenuView" customModule="itp_mobilelab_week4" customModuleProvider="target">
+            <connections>
+                <outlet property="bottomLineView" destination="bOM-ox-vxW" id="rFn-He-xSm"/>
+                <outlet property="centerLineView" destination="jyu-wJ-44A" id="gCK-F2-uMs"/>
+                <outlet property="topLineView" destination="7dg-C9-MLM" id="W7D-CE-eb0"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dg-C9-MLM">
+                    <rect key="frame" x="176" y="44" width="22" height="2"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="2Az-0A-RdZ"/>
+                        <constraint firstAttribute="height" constant="2" id="3HN-1y-Bjo"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jyu-wJ-44A">
+                    <rect key="frame" x="176" y="51" width="22" height="2"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="pUR-y8-dfE"/>
+                        <constraint firstAttribute="height" constant="2" id="vHt-tk-gM0"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bOM-ox-vxW">
+                    <rect key="frame" x="176" y="58" width="22" height="2"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="22" id="gFU-Ef-Dze"/>
+                        <constraint firstAttribute="height" constant="2" id="qFp-LA-5On"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VFh-ih-taP" userLabel="Toggle Button" customClass="UIButton">
+                    <rect key="frame" x="165" y="30" width="44" height="44"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="VFh-ih-taP" secondAttribute="height" id="Vnl-si-yHi"/>
+                        <constraint firstAttribute="width" constant="44" id="pM4-sF-UOo"/>
+                    </constraints>
+                    <connections>
+                        <action selector="toggleButtonDidPressWithSender:" destination="-1" eventType="touchUpInside" id="g1e-Jf-sNH"/>
+                    </connections>
+                </view>
+            </subviews>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="jyu-wJ-44A" firstAttribute="centerX" secondItem="7dg-C9-MLM" secondAttribute="centerX" id="CtG-E2-vYs"/>
+                <constraint firstItem="7dg-C9-MLM" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="RP0-xz-IFy"/>
+                <constraint firstItem="bOM-ox-vxW" firstAttribute="centerX" secondItem="jyu-wJ-44A" secondAttribute="centerX" id="YtD-d8-Bfe"/>
+                <constraint firstItem="VFh-ih-taP" firstAttribute="centerX" secondItem="jyu-wJ-44A" secondAttribute="centerX" id="aJB-eX-562"/>
+                <constraint firstItem="7dg-C9-MLM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="24" id="cgh-qX-CgI"/>
+                <constraint firstItem="bOM-ox-vxW" firstAttribute="top" secondItem="jyu-wJ-44A" secondAttribute="bottom" constant="5" id="gk0-gu-i0P"/>
+                <constraint firstItem="jyu-wJ-44A" firstAttribute="top" secondItem="7dg-C9-MLM" secondAttribute="bottom" constant="5" id="hMc-V0-aD8"/>
+                <constraint firstItem="VFh-ih-taP" firstAttribute="centerY" secondItem="jyu-wJ-44A" secondAttribute="centerY" id="j9k-Zz-WRR"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+        </view>
+    </objects>
+</document>

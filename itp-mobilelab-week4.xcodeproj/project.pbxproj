@@ -12,6 +12,8 @@
 		083C9E6E20383F03002F6636 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 083C9E6C20383F03002F6636 /* Main.storyboard */; };
 		083C9E7020383F03002F6636 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 083C9E6F20383F03002F6636 /* Assets.xcassets */; };
 		083C9E7320383F03002F6636 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 083C9E7120383F03002F6636 /* LaunchScreen.storyboard */; };
+		083C9E7C203851F2002F6636 /* ExpandableMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083C9E7B203851F2002F6636 /* ExpandableMenuView.swift */; };
+		083C9E7E2038539D002F6636 /* ExpandableMenuView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 083C9E7D2038539D002F6636 /* ExpandableMenuView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		083C9E6F20383F03002F6636 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		083C9E7220383F03002F6636 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		083C9E7420383F03002F6636 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		083C9E7B203851F2002F6636 /* ExpandableMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpandableMenuView.swift; sourceTree = "<group>"; };
+		083C9E7D2038539D002F6636 /* ExpandableMenuView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpandableMenuView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +58,7 @@
 		083C9E6720383F03002F6636 /* itp-mobilelab-week4 */ = {
 			isa = PBXGroup;
 			children = (
+				083C9E7A203851D6002F6636 /* ExpandableMenuView */,
 				083C9E6820383F03002F6636 /* AppDelegate.swift */,
 				083C9E6A20383F03002F6636 /* ViewController.swift */,
 				083C9E6C20383F03002F6636 /* Main.storyboard */,
@@ -62,6 +67,15 @@
 				083C9E7420383F03002F6636 /* Info.plist */,
 			);
 			path = "itp-mobilelab-week4";
+			sourceTree = "<group>";
+		};
+		083C9E7A203851D6002F6636 /* ExpandableMenuView */ = {
+			isa = PBXGroup;
+			children = (
+				083C9E7B203851F2002F6636 /* ExpandableMenuView.swift */,
+				083C9E7D2038539D002F6636 /* ExpandableMenuView.xib */,
+			);
+			path = ExpandableMenuView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -123,6 +137,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				083C9E7E2038539D002F6636 /* ExpandableMenuView.xib in Resources */,
 				083C9E7320383F03002F6636 /* LaunchScreen.storyboard in Resources */,
 				083C9E7020383F03002F6636 /* Assets.xcassets in Resources */,
 				083C9E6E20383F03002F6636 /* Main.storyboard in Resources */,
@@ -138,6 +153,7 @@
 			files = (
 				083C9E6B20383F03002F6636 /* ViewController.swift in Sources */,
 				083C9E6920383F03002F6636 /* AppDelegate.swift in Sources */,
+				083C9E7C203851F2002F6636 /* ExpandableMenuView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
