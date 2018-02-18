@@ -40,7 +40,10 @@ class ExpandableMenuView: UIView {
             didSetExpandedRelativeHeight()
         }
     }
-    @IBInspectable public var expandedBackgroundColor: UIColor = UIColor(white: 0.97, alpha: 1.0)
+    @IBInspectable public var expandedBackgroundColor = UIColor(white: 0, alpha: 1.0)
+    @IBInspectable public var collapsedBackgroundColor = UIColor.clear
+    @IBInspectable public var expandedLineColor = UIColor.white
+    @IBInspectable public var collapsedLineColor = UIColor.black
     //*********************
     
     //MARK: Private
@@ -56,13 +59,17 @@ class ExpandableMenuView: UIView {
         
         return CGSize(width: superview.bounds.width, height: superview.bounds.height * expandedRelativeHeight)
     }
-    private let collapsedBackgroundColor = UIColor.clear
     //***************
     
-    //*** Icon ***
-    @IBOutlet private var topLineView: UIView?
-    @IBOutlet private var centerLineView: UIView?
-    @IBOutlet private var bottomLineView: UIView?
+    //*** IBOutlets ***
+    @IBOutlet weak private var contentView: UIView?
+    //
+    @IBOutlet weak private var topLineView: UIView?
+    @IBOutlet weak private var centerLineView: UIView?
+    @IBOutlet weak private var bottomLineView: UIView?
+    //
+    @IBOutlet private var bottomLineExpandedWidthConstraint: NSLayoutConstraint?
+    @IBOutlet private var bottomLineExpandedBottomConstraint: NSLayoutConstraint?
     //************
     
     //MARK: - Public methods
@@ -90,6 +97,7 @@ class ExpandableMenuView: UIView {
     //MARK: Init
     private func customInit() {
         self.translatesAutoresizingMaskIntoConstraints = false
+        self.backgroundColor = collapsedBackgroundColor
         initContentView()
     }
     
@@ -121,11 +129,11 @@ class ExpandableMenuView: UIView {
     
     //MARK: UI
     private func refreshUI() {
-        refreshBackgroundColor()
+        refreshColors()
         refreshLines()
     }
     
-    private func refreshBackgroundColor() {
+    private func refreshColors() {
         //*** BackgroundColor ***
         func stateBackgroundColor() -> UIColor {
             switch currentState {
@@ -137,9 +145,45 @@ class ExpandableMenuView: UIView {
         }
         //***********************
         
+        //*** LineColor ***
+        func stateLineColor() -> UIColor {
+            switch currentState {
+            case .collapsed:
+                return collapsedLineColor
+            case .expanded:
+                return expandedLineColor
+            }
+        }
+        //***********************
+        
+        //*** Duration ***
+        func duration() -> TimeInterval {
+            switch currentState {
+            case .collapsed:
+                return 0.2
+            case .expanded:
+                return 0.5
+            }
+        }
+        //****************
+        
+        //*** Delay ***
+        func delay() -> TimeInterval {
+            switch currentState {
+            case .collapsed:
+                return 0
+            case .expanded:
+                return 0.1
+            }
+        }
+        //****************
+        
         //
-        UIView.animate(withDuration: 0.5, delay: 0.1, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: duration(), delay: delay(), options: .curveEaseOut, animations: {
             self.backgroundColor = stateBackgroundColor()
+            self.topLineView?.backgroundColor = stateLineColor()
+            self.centerLineView?.backgroundColor = stateLineColor()
+            self.bottomLineView?.backgroundColor = stateLineColor()
         }, completion: nil)
     }
     
@@ -211,8 +255,11 @@ class ExpandableMenuView: UIView {
         UIView.animate(withDuration: duration(), delay: 0, usingSpringWithDamping: damping(), initialSpringVelocity: 1.0, options: .curveEaseInOut, animations: {
             self.topLineView?.transform = topLineTransform()
             self.centerLineView?.transform = centerLineTransform()
-            self.bottomLineView?.transform = bottomLineTransform()
+            self.bottomLineExpandedWidthConstraint?.isActive = self.currentState == .expanded
+            self.bottomLineExpandedBottomConstraint?.isActive = self.currentState == .expanded
             self.invalidateIntrinsicContentSize()
+            self.superview?.setNeedsLayout()
+            self.superview?.layoutIfNeeded()
         }, completion: nil)
     }
     

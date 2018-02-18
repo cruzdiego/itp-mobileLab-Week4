@@ -13,6 +13,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ExpandableMenuView" customModule="itp_mobilelab_week4" customModuleProvider="target">
             <connections>
+                <outlet property="bottomLineExpandedBottomConstraint" destination="Nfk-0S-eZD" id="C0v-hp-nEV"/>
+                <outlet property="bottomLineExpandedWidthConstraint" destination="xxU-NZ-n8J" id="vx9-1u-hNn"/>
                 <outlet property="bottomLineView" destination="bOM-ox-vxW" id="rFn-He-xSm"/>
                 <outlet property="centerLineView" destination="jyu-wJ-44A" id="gCK-F2-uMs"/>
                 <outlet property="topLineView" destination="7dg-C9-MLM" id="W7D-CE-eb0"/>
@@ -43,7 +45,7 @@
                     <rect key="frame" x="176" y="58" width="22" height="2"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="22" id="gFU-Ef-Dze"/>
+                        <constraint firstAttribute="width" priority="750" constant="22" id="gFU-Ef-Dze"/>
                         <constraint firstAttribute="height" constant="2" id="qFp-LA-5On"/>
                     </constraints>
                 </view>
@@ -62,15 +64,23 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstItem="jyu-wJ-44A" firstAttribute="centerX" secondItem="7dg-C9-MLM" secondAttribute="centerX" id="CtG-E2-vYs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bOM-ox-vxW" secondAttribute="bottom" id="Nfk-0S-eZD"/>
                 <constraint firstItem="7dg-C9-MLM" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="RP0-xz-IFy"/>
                 <constraint firstItem="bOM-ox-vxW" firstAttribute="centerX" secondItem="jyu-wJ-44A" secondAttribute="centerX" id="YtD-d8-Bfe"/>
                 <constraint firstItem="VFh-ih-taP" firstAttribute="centerX" secondItem="jyu-wJ-44A" secondAttribute="centerX" id="aJB-eX-562"/>
                 <constraint firstItem="7dg-C9-MLM" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="24" id="cgh-qX-CgI"/>
-                <constraint firstItem="bOM-ox-vxW" firstAttribute="top" secondItem="jyu-wJ-44A" secondAttribute="bottom" constant="5" id="gk0-gu-i0P"/>
+                <constraint firstItem="bOM-ox-vxW" firstAttribute="top" secondItem="jyu-wJ-44A" secondAttribute="bottom" priority="750" constant="5" id="gk0-gu-i0P"/>
                 <constraint firstItem="jyu-wJ-44A" firstAttribute="top" secondItem="7dg-C9-MLM" secondAttribute="bottom" constant="5" id="hMc-V0-aD8"/>
                 <constraint firstItem="VFh-ih-taP" firstAttribute="centerY" secondItem="jyu-wJ-44A" secondAttribute="centerY" id="j9k-Zz-WRR"/>
+                <constraint firstItem="bOM-ox-vxW" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="xxU-NZ-n8J"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="Nfk-0S-eZD"/>
+                    <exclude reference="xxU-NZ-n8J"/>
+                </mask>
+            </variation>
         </view>
     </objects>
 </document>
