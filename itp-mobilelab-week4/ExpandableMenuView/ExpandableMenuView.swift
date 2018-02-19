@@ -233,7 +233,7 @@ class ExpandableMenuView: UIView {
             self.bottomLineView?.backgroundColor = stateLineColor()
         }, completion: nil)
         
-        UIView.animate(withDuration: duration()/2, delay: 0.0, options: .curveEaseOut, animations: {
+        UIView.animate(withDuration: duration()/2, delay: delay(), options: .curveEaseOut, animations: {
             self.contentStackView?.alpha = stateContentAlpha()
             for control in self.contentControls {
                 control.tintColor = stateLineColor()
