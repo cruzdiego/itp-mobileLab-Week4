@@ -40,10 +40,18 @@ class ExpandableMenuView: UIView {
             didSetExpandedRelativeHeight()
         }
     }
-    @IBInspectable public var expandedBackgroundColor = UIColor(white: 0, alpha: 1.0)
-    @IBInspectable public var collapsedBackgroundColor = UIColor.clear
-    @IBInspectable public var expandedLineColor = UIColor.white
-    @IBInspectable public var collapsedLineColor = UIColor.black
+    @IBInspectable public var expandedBackgroundColor:UIColor = UIColor(white: 0, alpha: 1.0)
+    @IBInspectable public var collapsedBackgroundColor:UIColor = UIColor.clear {
+        didSet {
+            didSetCollapsedBackgroundColor()
+        }
+    }
+    @IBInspectable public var expandedLineColor:UIColor = UIColor.white
+    @IBInspectable public var collapsedLineColor:UIColor = UIColor.black {
+        didSet {
+            didSetCollapsedLineColor()
+        }
+    }
     //*********************
     
     //MARK: Private
@@ -62,7 +70,7 @@ class ExpandableMenuView: UIView {
     //***************
     
     //*** IBOutlets ***
-    @IBOutlet weak private var contentView: UIView?
+    @IBOutlet weak private var contentStackView: UIStackView?
     //
     @IBOutlet weak private var topLineView: UIView?
     @IBOutlet weak private var centerLineView: UIView?
@@ -71,6 +79,10 @@ class ExpandableMenuView: UIView {
     @IBOutlet private var bottomLineExpandedWidthConstraint: NSLayoutConstraint?
     @IBOutlet private var bottomLineExpandedBottomConstraint: NSLayoutConstraint?
     //************
+    
+    private var contentControls: [UIControl] {
+        return (contentStackView?.arrangedSubviews as? [UIControl]) ?? []
+    }
     
     //MARK: - Public methods
     //MARK: Init
@@ -92,17 +104,28 @@ class ExpandableMenuView: UIView {
     //MARK: - Private methods
     //MARK: didSet
     private func didSetCurrentState() {
-        refreshUI()
+        refreshUI(animated: true)
     }
     
     private func didSetExpandedRelativeHeight() {
         expandedRelativeHeight = min(1.0, max(0.0, expandedRelativeHeight))
+    }
+    
+    private func didSetCollapsedBackgroundColor() {
+        refreshUI()
+    }
+    
+    private func didSetCollapsedLineColor() {
+        refreshUI()
     }
 
     //MARK: Init
     private func customInit() {
         self.translatesAutoresizingMaskIntoConstraints = false
         self.backgroundColor = collapsedBackgroundColor
+        self.topLineView?.backgroundColor = collapsedLineColor
+        self.centerLineView?.backgroundColor = collapsedLineColor
+        self.bottomLineView?.backgroundColor = collapsedLineColor
         initContentView()
     }
     
@@ -133,12 +156,12 @@ class ExpandableMenuView: UIView {
     }
     
     //MARK: UI
-    private func refreshUI() {
-        refreshColors()
-        refreshLines()
+    private func refreshUI(animated: Bool = false) {
+        refreshColors(animated: animated)
+        refreshLines(animated: animated)
     }
     
-    private func refreshColors() {
+    private func refreshColors(animated:Bool = false) {
         //*** BackgroundColor ***
         func stateBackgroundColor() -> UIColor {
             switch currentState {
@@ -161,8 +184,23 @@ class ExpandableMenuView: UIView {
         }
         //***********************
         
+        //*** ContentAlpha ***
+        func stateContentAlpha() -> CGFloat {
+            switch currentState {
+            case .collapsed:
+                return 0.0
+            case .expanded:
+                return 1.0
+            }
+        }
+        //********************
+        
         //*** Duration ***
         func duration() -> TimeInterval {
+            guard animated else {
+                return 0.0
+            }
+            
             switch currentState {
             case .collapsed:
                 return 0.2
@@ -174,6 +212,10 @@ class ExpandableMenuView: UIView {
         
         //*** Delay ***
         func delay() -> TimeInterval {
+            guard animated else {
+                return 0.0
+            }
+            
             switch currentState {
             case .collapsed:
                 return 0
@@ -190,9 +232,16 @@ class ExpandableMenuView: UIView {
             self.centerLineView?.backgroundColor = stateLineColor()
             self.bottomLineView?.backgroundColor = stateLineColor()
         }, completion: nil)
+        
+        UIView.animate(withDuration: duration()/2, delay: 0.0, options: .curveEaseOut, animations: {
+            self.contentStackView?.alpha = stateContentAlpha()
+            for control in self.contentControls {
+                control.tintColor = stateLineColor()
+            }
+        }, completion: nil)
     }
     
-    private func refreshLines() {
+    private func refreshLines(animated:Bool = false) {
         guard let superview = superview else {
             return
         }
@@ -247,6 +296,10 @@ class ExpandableMenuView: UIView {
         
         //*** Duration ***
         func duration() -> TimeInterval {
+            guard animated else {
+                return 0.0
+            }
+            
             switch currentState {
             case .collapsed:
                 return 0.6

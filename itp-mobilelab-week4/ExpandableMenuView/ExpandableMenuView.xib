@@ -17,6 +17,7 @@
                 <outlet property="bottomLineExpandedWidthConstraint" destination="xxU-NZ-n8J" id="vx9-1u-hNn"/>
                 <outlet property="bottomLineView" destination="bOM-ox-vxW" id="rFn-He-xSm"/>
                 <outlet property="centerLineView" destination="jyu-wJ-44A" id="gCK-F2-uMs"/>
+                <outlet property="contentStackView" destination="Cxg-sK-tUN" id="Eez-f8-IZ0"/>
                 <outlet property="topLineView" destination="7dg-C9-MLM" id="W7D-CE-eb0"/>
             </connections>
         </placeholder>
@@ -25,11 +26,12 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Cxg-sK-tUN">
+                <stackView opaque="NO" alpha="0.0" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Cxg-sK-tUN">
                     <rect key="frame" x="174.5" y="305" width="26" height="332"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogp-nB-gBZ">
                             <rect key="frame" x="0.0" y="0.0" width="26" height="85"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="30"/>
                             <state key="normal" image="homeIcon">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -37,6 +39,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufu-c4-RRu">
                             <rect key="frame" x="0.0" y="85" width="26" height="82"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="30"/>
                             <state key="normal" image="heartIcon">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -44,6 +47,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8e-FV-Bgq">
                             <rect key="frame" x="0.0" y="167" width="26" height="82"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="30"/>
                             <state key="normal" image="clockIcon">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -51,6 +55,7 @@
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tai-hU-OUb">
                             <rect key="frame" x="0.0" y="249" width="26" height="83"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <inset key="contentEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="30"/>
                             <state key="normal" image="starIcon">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
