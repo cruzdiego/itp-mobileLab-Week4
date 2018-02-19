@@ -50,7 +50,7 @@ class ExpandableMenuView: UIView {
     
     //*** General ***
     private var collapsedContentSize: CGSize {
-        return CGSize(width:44.0,height:64.0)
+        return CGSize(width:44.0,height:64.0 + safeAreaInsets.top)
     }
     private var expandedContentSize: CGSize {
         guard let superview = superview else {
@@ -82,6 +82,11 @@ class ExpandableMenuView: UIView {
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         customInit()
+    }
+    
+    override func safeAreaInsetsDidChange() {
+        super.safeAreaInsetsDidChange()
+        invalidateIntrinsicContentSize()
     }
     
     //MARK: - Private methods

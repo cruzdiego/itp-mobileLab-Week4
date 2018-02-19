@@ -25,6 +25,39 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="Cxg-sK-tUN">
+                    <rect key="frame" x="174.5" y="305" width="26" height="332"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ogp-nB-gBZ">
+                            <rect key="frame" x="0.0" y="0.0" width="26" height="85"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="30"/>
+                            <state key="normal" image="homeIcon">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ufu-c4-RRu">
+                            <rect key="frame" x="0.0" y="85" width="26" height="82"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="30"/>
+                            <state key="normal" image="heartIcon">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s8e-FV-Bgq">
+                            <rect key="frame" x="0.0" y="167" width="26" height="82"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="30"/>
+                            <state key="normal" image="clockIcon">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tai-hU-OUb">
+                            <rect key="frame" x="0.0" y="249" width="26" height="83"/>
+                            <inset key="contentEdgeInsets" minX="0.0" minY="30" maxX="0.0" maxY="30"/>
+                            <state key="normal" image="starIcon">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                        </button>
+                    </subviews>
+                </stackView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7dg-C9-MLM">
                     <rect key="frame" x="176" y="44" width="22" height="2"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -63,7 +96,9 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="Cxg-sK-tUN" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="BCK-eq-ghv"/>
                 <constraint firstItem="jyu-wJ-44A" firstAttribute="centerX" secondItem="7dg-C9-MLM" secondAttribute="centerX" id="CtG-E2-vYs"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Cxg-sK-tUN" secondAttribute="bottom" constant="30" id="Fxr-ow-ja0"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="bOM-ox-vxW" secondAttribute="bottom" id="Nfk-0S-eZD"/>
                 <constraint firstItem="7dg-C9-MLM" firstAttribute="centerX" secondItem="vUN-kp-3ea" secondAttribute="centerX" id="RP0-xz-IFy"/>
                 <constraint firstItem="bOM-ox-vxW" firstAttribute="centerX" secondItem="jyu-wJ-44A" secondAttribute="centerX" id="YtD-d8-Bfe"/>
@@ -83,4 +118,10 @@
             </variation>
         </view>
     </objects>
+    <resources>
+        <image name="clockIcon" width="22" height="22"/>
+        <image name="heartIcon" width="22" height="21"/>
+        <image name="homeIcon" width="26" height="25"/>
+        <image name="starIcon" width="24" height="23"/>
+    </resources>
 </document>
